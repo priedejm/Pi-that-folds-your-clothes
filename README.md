@@ -15,3 +15,4 @@ Week 1
   
   - [ ] Customize and understand servo movement.
   - [ ] Decide on motor.
+  - [ ] Watch CAD software turotial, I think we should do this considering its the first thing on our official proposal
