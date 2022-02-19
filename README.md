@@ -7,8 +7,8 @@ so....
 
 I had the thought since we are graded on software, Professor would enjoy seeing software updates at every meeting rather than significant hardware updates with little no software updates. So I added a bit more complexity to the readme to clarify software and hardware
 
-Week 1 ✔
-------------
+Week 1
+=============
 
 ### Software ###
   
@@ -27,7 +27,7 @@ Week 1 ✔
 
 
 Week 2 - Meeting Week
-------------
+=============
   ### Software ###
   
         [ ] control RPM's
@@ -46,13 +46,13 @@ Week 2 - Meeting Week
         [ ]  connect motors to platforms
 
 Week 3
-------------
+=============
         [ ]  ???
   
         [ ]  ???
 
 Week 4 - Meeting Week
-------------
+=============
         [ ]  ???
   
         [ ]  ???
