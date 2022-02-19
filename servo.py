@@ -1,22 +1,19 @@
-from gpiozero import Servo
-from time import sleep
+import RPi.GPIO as GPIO
 
-from gpiozero.pins.pigpio import PiGPIOFactory
-#comment out factory and take it out the servo to see it work worse.
-factory = PiGPIOFactory()
-#pin_factory=factory
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(11,GPIO.OUT)
+pwm=GPIO.PWM(11,50)
+pwm.start(5)
+#pwm.ChangeDutyCycle(1) #full left
+#pwm.ChangeDutyCycle(12) #full right
+#pwm.ChangeDutyCycle(7.5) #middle
 
-servo = Servo(16, pin_factory=factory)
+pwm.start(7.5)
 
-print("Start in the middle")
-servo.mid()
-sleep(5)
-servo.min()
-sleep(5)
-print("Go to Max")
-servo.max()
-sleep(5)
-print("And back to middle")
-servo.mid()
-sleep(5)
-servo.value = None;
+for i in range(0,5):
+    desiredPosition=input("where do you want the servo? 1-12")
+    DC = int(desiredPosition)
+    pwm.ChangeDutyCycle(DC)
+    
+pwm.stop() #stop the servo
+GPIO.cleanup()
