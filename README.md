@@ -2,6 +2,8 @@
 
 So right now This code just runs on a servo if hooked up correctly.
 
+Try and add as much software as hardware per meeting
+
 I think this would be a good place to track progress to put it our sprint template. 
 so....
 
