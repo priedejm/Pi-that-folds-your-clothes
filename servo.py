@@ -6,7 +6,7 @@ from gpiozero.pins.pigpio import PiGPIOFactory
 factory = PiGPIOFactory()
 #pin_factory=factory
 
-servo = Servo(12, pin_factory=factory)
+servo = Servo(16, pin_factory=factory)
 
 print("Start in the middle")
 servo.mid()
