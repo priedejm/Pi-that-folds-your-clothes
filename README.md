@@ -30,9 +30,12 @@ Week 2 - Meeting Week
 =============
   ### Software ###
   
-        [ ] control RPM's
+        ✔️ control RPM's
   
-        [ ] turn 180 degrees and back
+        ✔️ turn 180 degrees and back
+        
+        [ ] Connect to and display text
+        
   
   
   ### Hardware ###
