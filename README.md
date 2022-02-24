@@ -1,18 +1,14 @@
 # Pi-that-folds-your-clothes
 
-So right now This code just runs on a servo if hooked up correctly.
-
 I think this would be a good place to track progress to put it our sprint template. 
 so....
-
-I had the thought since we are graded on software, Professor would enjoy seeing software updates at every meeting rather than significant hardware updates with little no software updates. So I added a bit more complexity to the readme to clarify software and hardware
 
 Week 1
 =============
 
 ### Software ###
   
-        ✔️   connect to and control *servos* from pi
+        ✔️ connect to and control *servos* from pi
   
         ✔️ connect to and control *motors* from pi
   
@@ -30,11 +26,11 @@ Week 2 - Meeting Week
 =============
   ### Software ###
   
-        ✔️ control RPM's
+        [ ] control RPM's
   
         ✔️ turn 180 degrees and back
         
-        [ ] Connect to and display text
+        ✔️ Startup greetings - select button for mode
         
   
   
@@ -50,12 +46,15 @@ Week 2 - Meeting Week
 
 Week 3
 =============
-        [ ]  ???
+        [ ]  connect to led display board
+        
+        [ ]  Control display board via joystick
   
-        [ ]  ???
+        [ ]  Timing motors
+        
 
 Week 4 - Meeting Week
 =============
-        [ ]  ???
+        [ ]  Full assmebly
   
-        [ ]  ???
+        [ ]  Connect camera
