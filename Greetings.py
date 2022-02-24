@@ -19,6 +19,20 @@
 print("Welcome to the pi that will fold your cloths for you\nWhat would you like to do?")
 print("1)Fold cloth\n2)My stats\n3)Today's lucky numbers\n4)A joke")
 
+userInput = input()
+
+if int(userInput) == 1:
+    print("Hi there 1")
+elif int(userInput) == 2:
+    print("Hi there 2")
+elif int(userInput) == 3:
+    print("Hi there 3")
+elif int(userInput) == 4:
+    print("Hi there 4")
+else:
+    print("Error: getting input from user stage")
+
+
 #4 buttons when press will do one of each of these
 
 
