@@ -22,26 +22,28 @@ import random
 def main():
     #4 buttons when press will do one of each of these
     print("Welcome to the pi that will fold your cloths for you\nWhat would you like to do?")
-    print("1)Fold cloth\n2)My stats\n3)Today's lucky numbers\n4)A joke")
+    print("1)Fold cloth\n2)My stats\n3)Today's lucky numbers\n4)A joke\n5)exit")
 
     userInput = input()
 
     if int(userInput) == 1:
-        print("Hi there 1")
+        print("In Folding Clothes Menu")
         #more code coming
         foldClothFunction()
     elif int(userInput) == 2:
-        print("Hi there 2")
+        print("My Stats Menu")
         #more code coming
         myStatsFuntion()
     elif int(userInput) == 3:
-        print("Hi there 3")
+        print("Lucky Number Menu")
         #more code coming
         luckyNumsFunction()
     elif int(userInput) == 4:
-        print("Hi there 4")
+        print("Joke Menu")
         #more code coming
         aJokeFunction()
+    elif int(userInput) == 5:
+        return;
     else:
         print("Error: getting input from user stage")
 
@@ -53,7 +55,19 @@ def foldClothFunction():
     #will go into this function doing some cool stuff with more options
 def myStatsFuntion():
     print()
-    #have some kind of backend to keep track of fun states
+    
+    readStatsAgain = 0
+    while readStatsAgain == 0:
+        with open ("dataSheet.txt", "r") as file:
+            var = file.read()
+            print(var)
+            file.close()
+        print("Would you like to see your stats again? Type: yes or no")
+        userinput = input()
+        if userinput == "yes":
+            readStatsAgain = 0;
+        if userinput == "no":
+            main()
 def luckyNumsFunction():
     print()
     #go to the luckyNums file.py
@@ -95,7 +109,7 @@ def luckyNumsFunction():
         print("The National Problem Gambling Helpline Network also includes text and chat services.")
         print()
         print()
-        print("Would you like another set of lucky number? yes or no")
+        print("Would you like another set of lucky number? Type: yes or no")
         userinput = input()
         if userinput == "yes":
             luckyNumAgain = 0;
@@ -182,7 +196,7 @@ def aJokeFunction():
             print("At the cornor because it's always 90 degrees.")
         if ranNum == 30:
             print("Why does nobody talk to circles?\nBecause there’s no point.")
-        print("Would you like to hear another joke? yes or no")
+        print("Would you like to hear another joke? Type: yes or no")
         userinput = input()
         if userinput == "yes":
             tellAJokeAgain = 0;
