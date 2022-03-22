@@ -110,7 +110,7 @@ def aJokeFunction():
     #print(ranNum)
     tellAJokeAgain = 0
     while tellAJokeAgain == 0:
-        ranNum = random.randint(1,16)
+        ranNum = random.randint(1,30)
         if ranNum == 1:
             print("what's a ghost's favourite type?")
             print("Booooolean")
@@ -152,6 +152,36 @@ def aJokeFunction():
         if ranNum == 16:
             print("why was there no windows 9?")
             print("because windows 7 8 9.")
+        if ranNum == 17:
+            print("What did the fish say when he sawm into a wall?\nDam.")
+        if ranNum == 18:
+            print("What is a computer’s favorite snack?\nComputer chips")
+        if ranNum == 19:
+            print("What did the ocean say to the boat?\nNothing it just wave")
+        if ranNum == 20:
+            print("What type of aniaml will always be in your computer?\n RAM")
+        if ranNum == 21:
+            print("What animal is always at a baseball game?\nA bat.")
+        if ranNum == 22:
+            print("What did the little corn say to the mama corn?\nWhere is pop corn?")
+        if ranNum == 23:
+            print("What kind of tree fits in your hand?\nA Palm Tree")
+        if ranNum == 24:
+            print("Why did the teddy bear say no to dessert?\nBecause she was stuffed.")
+        if ranNum == 25:
+            print("What did one plate say to the other plate?\nDinner is on me.")
+        if ranNum == 26:
+            print("Why did the student eat his homework?\nBecause the teacher told him it was a piece of cake.")
+        if ranNum == 27:
+            print("What did the tiger say to her cub on his birthday?\nIt’s roar birthday.")
+        if ranNum == 28:
+            print("Why was the equal sign so humble?")
+            print("Because he wasn’t greater than or less than anyone else.")
+        if ranNum == 29:
+            print("How do you stay warm in any room?")
+            print("At the cornor because it's always 90 degrees.")
+        if ranNum == 30:
+            print("Why does nobody talk to circles?\nBecause there’s no point.")
         print("Would you like to hear another joke? yes or no")
         userinput = input()
         if userinput == "yes":
