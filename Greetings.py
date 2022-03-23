@@ -43,7 +43,7 @@ def main():
         #more code coming
         aJokeFunction()
     elif int(userInput) == 5:
-        return;
+        exit();
     else:
         print("Error: getting input from user stage")
 
