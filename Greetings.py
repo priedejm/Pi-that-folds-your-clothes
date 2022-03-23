@@ -21,25 +21,31 @@ import random
 
 def main():
     #4 buttons when press will do one of each of these
+    print("\n");
     print("Welcome to the pi that will fold your cloths for you\nWhat would you like to do?")
     print("1)Fold cloth\n2)My stats\n3)Today's lucky numbers\n4)A joke\n5)exit")
 
     userInput = input()
 
     if int(userInput) == 1:
+        print("\n");
         print("In Folding Clothes Menu")
         #more code coming
         foldClothFunction()
     elif int(userInput) == 2:
+        print("\n");
         print("My Stats Menu")
         #more code coming
         myStatsFuntion()
     elif int(userInput) == 3:
+        print("\n");
         print("Lucky Number Menu")
         #more code coming
         luckyNumsFunction()
     elif int(userInput) == 4:
+        print("\n");
         print("Joke Menu")
+        print("\n");
         #more code coming
         aJokeFunction()
     elif int(userInput) == 5:
@@ -52,7 +58,39 @@ def main():
 
 def foldClothFunction():
     print()
-    #will go into this function doing some cool stuff with more options
+    #not completed yet
+    keepfolding = 0;
+    while keepfolding == 0:
+        #with open ("dataSheet.txt", "w") as file:
+        #    file.close()
+        print("1 for folding shirts")
+        print("2 for folding pants")
+        print("3 for folding towels")
+        print("4 for main menu")
+        typeofFold = int(input())
+        if typeofFold == 1:
+            #code for folding shirts goses in this if block---------------
+            print("\n");
+            print("folding shirt in progress")
+            print("done")
+        if typeofFold == 2:
+            #code for folding pants goses in this if block---------------
+            print("\n");
+            print("folding pants in progress")
+            print("done")
+        if typeofFold == 3:
+            #code for folding pants goses in this if block---------------
+            print("\n");
+            print("folding towels in progress")
+            print("done")
+        if typeofFold == 4:
+            print("\n");
+            main()
+        foldClothFunction()
+            
+        
+        
+        
 def myStatsFuntion():
     print()
     
@@ -62,6 +100,7 @@ def myStatsFuntion():
             var = file.read()
             print(var)
             file.close()
+        print("\n");
         print("Would you like to see your stats again? Type: yes or no")
         userinput = input()
         if userinput == "yes":
@@ -151,7 +190,8 @@ def aJokeFunction():
             print("A guy walks into a bar and asks for 1.4 root beers. The bartender says \"I'll have to charge you extra, that's a root beer float\".")
             print("The guy says \"In that case, better make it a double.\"")
         if ranNum == 10:
-            print("Java and C++ were telling jokes. It was C++'s turn, so he writes something on the wall, points to it and says \"Do you get the reference?\" But Java didn't.")
+            print("Java and C++ were telling jokes. It was C++'s turn, so he writes something on the wall")
+            print("points to it and says \"Do you get the reference?\" But Java didn't.")
         if ranNum == 11:
             print("wife: could you pass the salt, dear")
             print("husband: by value or by reference?")
@@ -196,6 +236,7 @@ def aJokeFunction():
             print("At the cornor because it's always 90 degrees.")
         if ranNum == 30:
             print("Why does nobody talk to circles?\nBecause there’s no point.")
+        print("\n");
         print("Would you like to hear another joke? Type: yes or no")
         userinput = input()
         if userinput == "yes":
