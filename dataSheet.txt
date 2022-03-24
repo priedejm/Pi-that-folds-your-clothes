@@ -1,0 +1,8 @@
+currentSessionCount 1
+shirtsSessionCount 2
+pantsSessionCount 3
+towelSessionCount 4
+lifetimeCount 5
+shirtsLifeTimeCount 6
+pantsLiftTimeCount 7
+towelSessionCount 8
