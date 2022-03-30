@@ -27,11 +27,12 @@ def reverse(tf):
     time.sleep(tf)
     gpio.cleanup()
 
-for i in range(0,10):
+for i in range(0,2):
     print ("forward")
-    forward(.015)
+    forward(2)
     time.sleep(1)
     print ("backward")
-    reverse(.015)
+    reverse(2)
     time.sleep(1)
+    gpio.cleanup()
 
