@@ -1,8 +1,8 @@
-currentSessionCount 0
-shirtsSessionCount 0
-pantsSessionCount 0
-towelSessionCount 0
-lifetimeCount 0
-shirtsLifeTimeCount 0
-pantsLiftTimeCount 0
-towelSessionCount 0
+0
+0
+0
+0
+0
+0
+0
+0
