@@ -17,8 +17,8 @@ class tkinterApp(tk.Tk):
         container = tk.Frame(self) 
         container.pack(side = "top", fill = "both", expand = True)
   
-        container.grid_rowconfigure(0, weight = 1)
-        container.grid_columnconfigure(0, weight = 1)
+        container.grid_rowconfigure(20)
+        container.grid_columnconfigure(20)
   
         # initializing frames to an empty array
         self.frames = {} 
@@ -54,8 +54,8 @@ class StartPage(tk.Frame):
         welcome = ttk.Label(self, text ="Welcome!", font = LARGEFONT)
         welcome.grid(row = 0, column = 4, padx = 10, pady = 10)
 
-        subWelcome = ttk.Label(self, text = "Let's fold some clothes!", font = LARGEFONT) 
-        subWelcome.grid(row = 1, column=4, padx = 10, pady = 10)
+        subWelcome = ttk.Label(self, text = "Let's fold some clothes!", font = ("Helvetica", 24)) 
+        subWelcome.grid(row = 3, column=4, padx = 10, pady = 10)
 
   
         button1 = ttk.Button(self, text ="Page 1",
@@ -63,15 +63,19 @@ class StartPage(tk.Frame):
      
         # putting the button in its place by
         # using grid
-        button1.grid(row = 1, column = 1, padx = 10, pady = 10)
-  
+        button1.grid(row = 20, column = 1,  padx = 10, pady = 10)
+
         ## button to show frame 2 with text layout2
         button2 = ttk.Button(self, text ="Page 2",
         command = lambda : controller.show_frame(Page2))
      
         # putting the button in its place by
         # using grid
-        button2.grid(row = 2, column = 1, padx = 10, pady = 10)
+        button2.grid(row = 20, column = 2, padx = 10, pady = 10)
+
+        button3 = ttk.Button(self, text ="Random Button",
+        command = lambda : controller.show_frame(Page2))
+        button3.grid(row = 20, column = 3, padx = 10, pady = 10)
   
           
   
@@ -82,7 +86,7 @@ class Page1(tk.Frame):
     def __init__(self, parent, controller):
          
         tk.Frame.__init__(self, parent)
-        label = ttk.Label(self, text ="Yep it sure is better.", font = LARGEFONT)
+        label = ttk.Label(self, text ="Folding modes below.", font = 18)
         label.grid(row = 0, column = 4, padx = 10, pady = 10)
   
         # button to show frame 2 with text
@@ -134,4 +138,5 @@ class Page2(tk.Frame):
   
 # Driver Code
 app = tkinterApp()
+app.geometry("800x425")
 app.mainloop()
