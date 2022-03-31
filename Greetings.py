@@ -15,7 +15,8 @@
 #
 # # See PyCharm help at https://www.jetbrains.com/help/pycharm/
 import random
-
+import re
+import array
 #geezz python has such simplictly syntax which makes it so diffcult in some cases. HOW DO YOU RUN THE MAIN FUNCTION
 
 
@@ -58,11 +59,29 @@ def main():
 
 def foldClothFunction():
     print()
+    #script for start up, and end
     #not completed yet
-    keepfolding = 0;
-    while keepfolding == 0:
-        #with open ("dataSheet.txt", "w") as file:
-        #    file.close()
+    #automatic mode
+    #touch mode
+    keepfolding = True
+    while keepfolding == True:
+        with open ("dataSheet.txt", "r+") as file:
+            dataNum = array.array('i',[0,0,0,0,0,0,0,0])
+            dataNum2 = []
+            count = 0
+            # for line in file:    
+            #     #anum = int(re.search(r'\d+', line).group())
+            #     #anum = int(file.readline())
+            #     dataNum.insert(count,anum)
+            # #print(anum)
+            #     count += 1
+            for num in file.readlines():
+                dataNum2.append(int(num))
+            print(dataNum2) 
+            # for i in range (0, 8):
+            #     print (dataNum2[i], end =" ")
+            # print()
+        file.close()
         print("1 for folding shirts")
         print("2 for folding pants")
         print("3 for folding towels")
@@ -70,23 +89,88 @@ def foldClothFunction():
         typeofFold = int(input())
         if typeofFold == 1:
             #code for folding shirts goses in this if block---------------
-            print("\n");
-            print("folding shirt in progress")
-            print("done")
+            try:
+                print("\n");
+                print("folding shirts in progress")
+                stringNumZero = dataNum2[0] + 1
+                stringNum = str(dataNum2[2])
+                with open ("dataSheet.txt", "w+") as f:
+                    f.write(str(stringNumZero) + "\n") #+ "\n" + stringNum)
+                    f.write(str(dataNum2[1]) + "\n")
+                    f.write(str(dataNum2[2]) + "\n")
+                    f.write(str(dataNum2[3] + 1) + "\n")
+                    f.write(str(dataNum2[4] + 1) + "\n")
+                    f.write(str(dataNum2[5]) + "\n")
+                    f.write(str(dataNum2[6]) + "\n")
+                    f.write(str(dataNum2[7] + 1) + "\n")
+                    #f.append(stringNum)
+                f.close()
+                print(dataNum2[0])
+                print("done")
+            except:
+                print("error trying to fold shirts please redo")
+                file.close()
+                foldClothFunction()
+                foldClothFunction()
         if typeofFold == 2:
             #code for folding pants goses in this if block---------------
-            print("\n");
-            print("folding pants in progress")
-            print("done")
+            try:
+                print("\n");
+                print("folding pants in progress")
+                stringNumZero = str(dataNum2[0])
+                dataNum2[1] = dataNum2[1] + 1
+                stringNum = str(dataNum2[1])
+                with open ("dataSheet.txt", "w+") as f:
+                    f.write(stringNumZero + "\n") #+ "\n" + stringNum)
+                    f.write(stringNum + "\n")
+                    f.write(str(dataNum2[2]) + "\n")
+                    f.write(str(dataNum2[3] + 1) + "\n")
+                    f.write(str(dataNum2[4]) + "\n")
+                    f.write(str(dataNum2[5] + 1) + "\n")
+                    f.write(str(dataNum2[6]) + "\n")
+                    f.write(str(dataNum2[7] + 1) + "\n")
+                    #f.append(stringNum)
+                f.close()
+                print(dataNum2[0])
+                print("done")
+            except:
+                print("error trying to fold shirt please redo")
+                file.close()
+                foldClothFunction()
         if typeofFold == 3:
-            #code for folding pants goses in this if block---------------
-            print("\n");
-            print("folding towels in progress")
-            print("done")
+            #code for folding towel goses in this if block---------------
+            try:
+                print("\n");
+                print("folding towls in progress")
+                stringNumZero = str(dataNum2[0])
+                stringNumOne = str(dataNum2[1])
+                dataNum2[2] = dataNum2[2] + 1
+                stringNum = str(dataNum2[2])
+                with open ("dataSheet.txt", "w+") as f:
+                    f.write(stringNumZero + "\n") #+ "\n" + stringNum)
+                    f.write(stringNumOne + "\n")
+                    f.write(str(dataNum2[2]) + "\n")
+                    f.write(str(dataNum2[3] + 1) + "\n")
+                    f.write(str(dataNum2[4]) + "\n")
+                    f.write(str(dataNum2[5]) + "\n")
+                    f.write(str(dataNum2[6] + 1) + "\n")
+                    f.write(str(dataNum2[7] + 1) + "\n")
+                    #f.append(stringNum)
+                f.close()
+                print(dataNum2[0])
+                print("done")
+            except:
+                print("error trying to fold towel please redo")
+                file.close()
+                foldClothFunction()
         if typeofFold == 4:
-            print("\n");
-            main()
+            keepfolding = False
+            break;
+
         foldClothFunction()
+    print("\n");
+    file.close()
+    main()
             
         
         
