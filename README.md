@@ -40,21 +40,56 @@ Week 2 - Meeting Week
   
         ✔️  connect 2 motors to H bridge
    
-        [ ]  connect 2M to one H Bridge and 1M to another H Bridge
+        ✔️  connect 2M to one H Bridge and 1M to another H Bridge
   
         [ ]  connect motors to platforms
 
 Week 3
 =============
-        [ ]  connect to led display board
         
-        [ ]  Control display board via joystick
+  ### Software ### 
+        
+        ✔️ Fixed interface issues
+        
+        ✔️ Can now interact between menues properly - need to move to proper gui now
   
-        [ ]  Timing motors
+  ### Hardware ###
+   
+        ✔️ Measured and cut out flaps to be used
+        
+        ✔️ Final 3d printed parts
         
 
 Week 4 - Meeting Week
 =============
-        [ ]  Full assmebly
+  ### Software ### 
+        
+        ✔️ Object detection demo connection with camera
+        
+        ✔️ Object Detection data set creation
+        
+        ✔️ Start gui
   
-        [ ]  Connect camera
+  ### Hardware ###
+        
+        ✔️ Connect Camerea
+        
+        
+Week 5
+=============
+  ### Software ### 
+        [ ] Motor inconsistency with new weight variable
+  
+  ### Hardware ###
+        
+
+        
+ Week 6 - eting week
+=============
+  ### Software ### 
+        
+   
+  
+  ### Hardware ###
+        
+       
