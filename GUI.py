@@ -2,10 +2,11 @@ from cgitb import text
 from re import X
 from textwrap import fill
 import tkinter as tk
-from tkinter import Frame, Image, PhotoImage, ttk
+from tkinter import Frame, Image, PhotoImage, ttk, Button
+#from PIL import ImageTk, Image
 from tkinter import font
 from turtle import bgcolor, color, width
-#from Greetings import *
+from Greetings import *
   
 LARGEFONT =("Verdana", 35)
 
@@ -24,6 +25,8 @@ def printShirt():
 #
 def printPants():
         print("Pants mode")
+
+path = "C:\\Users\priedejm\Desktop\pi\Pi-that-folds-your-clothes\Laundry.png"
   
 class tkinterApp(tk.Tk):
      
@@ -75,7 +78,7 @@ class Home(tk.Frame):
     
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
-        Frame.configure(self, background="#272933" )
+        Frame.configure(self, background="#272933",  )
         # label of frame Layout 2
         welcome = ttk.Label(self, text ="The Pi that Folds your Clothes",foreground='white',background="#272933" ,font = LARGEFONT, padding=40,  )
         sub = ttk.Label(self, text ="  Choose a mode below \n       to get started", foreground='white',background="#272933",font = ("Verdana", 28), anchor="e",  )
@@ -95,18 +98,16 @@ class Home(tk.Frame):
         style = ttk.Style()
         style.theme_use("default")
 
-        style.map("Mod.TButton",
-          background = [("active", "#F60081"), ("!active", "white")],
-          foreground = [("active", "white"), ("!active", "#F60081")])
+        style.configure("Other.TButton", foreground="#F60081", background="white")
         # End of Styles for buttons
 
-        button1 = ttk.Button(self.frame_buttons ,text ="Let's Fold some Clothes" ,command = lambda : controller.show_frame(FoldClothes),width=50, padding=40,style="Mod.TButton",  )
+        button1 = ttk.Button(self.frame_buttons ,text ="Let's Fold some Clothes" ,command = lambda : controller.show_frame(FoldClothes),width=50, padding=40,style="Other.TButton",  )
         button1.grid(row = 0, column = 0,  )
 
-        button2 = ttk.Button(self.frame_buttons, text ="Tell me a Joke", command = lambda : controller.show_frame(Joke), width=50, padding=40, style="Mod.TButton" ) 
+        button2 = ttk.Button(self.frame_buttons, text ="Tell me a Joke", command = lambda : controller.show_frame(Joke), width=50, padding=40, style="Other.TButton" ) 
         button2.grid(row = 0, column = 1,)
 
-        button3 = ttk.Button(self.frame_buttons, text ="Object Detection", command = lambda : controller.show_frame(FoldClothes),  width=30, padding=40, style="Mod.TButton" )
+        button3 = ttk.Button(self.frame_buttons, text ="Object Detection", command = lambda : controller.show_frame(FoldClothes),  width=30, padding=40, style="Other.TButton" )
         button3.grid(row = 0, column = 2, )
         
     def tkraise(self):
@@ -138,19 +139,18 @@ class FoldClothes(tk.Frame):
         # End of labels on left side of display 
 
 
-        # Styles for top buttons
+        # Styles for shirt and pants mode buttons
         style = ttk.Style()
-        style.theme_use("default")
-
-        style.map("Other.TButton",
+        style.map("shirtPants.TButton",
           background = [("active", "#F60081"), ("!active", "white")],
-          foreground = [("active", "white"), ("!active", "#F60081")])
-        # End of Styles for top buttons
+          foreground = [("active", "white"), ("!active", "#F60081")], )
+        style.configure("shirtPants.TButton", font=("Verdana", 20))
+        # Styles for shirt and pants mode buttons
 
         # Beginning of buttons, shirt and pants
-        shirtButton = ttk.Button(self, text= "Shirt Mode",padding=20, width=30, command= lambda: [printShirt()])
+        shirtButton = ttk.Button(self, text= "Shirt Mode",padding=20,command= lambda: [printShirt()], style='shirtPants.TButton')
         shirtButton.grid(row = 4, column = 1, )
-        pantsButton = ttk.Button(self, text= "Pants Mode",padding=20, width=30,command= lambda: [printPants()])
+        pantsButton = ttk.Button(self, text= "Pants Mode",padding=20,command= lambda: [printPants()], style='shirtPants.TButton')
         pantsButton.grid(row = 6, column = 1, )
         # End of buttons, shirt and pants
         shirtpaddingLabel = ttk.Label(self, text ="Fold a shirt", font = ("Verdana", 20), background="#272933", foreground="white")
@@ -159,8 +159,7 @@ class FoldClothes(tk.Frame):
         pantspaddingLabel.grid(row = 6, column = 0)
         # End of labels on left side of display 
        
-       
-         
+
         
         #Creating a frame exclusively for the buttons
         self.frame_buttons = tk.Frame(parent)
@@ -175,12 +174,10 @@ class FoldClothes(tk.Frame):
         style = ttk.Style()
         style.theme_use("default")
 
-        style.map("Other.TButton",
-          background = [("active", "#F60081"), ("!active", "white")],
-          foreground = [("active", "white"), ("!active", "#F60081")])
+        style.configure("Other.TButton", foreground="#F60081", background="white")
         # End of Styles for bottom tab buttons
         
-        button1 = ttk.Button(self.frame_buttons,text ="Home", command = lambda : controller.show_frame(Home), width=50, padding=40, style="Other.TButton")
+        button1 = ttk.Button(self.frame_buttons,text ="Home",command = lambda : controller.show_frame(Home), width=50, padding=40, style="Other.TButton")
         button1.grid(row = 0, column = 0, )
 
         button2 = ttk.Button(self.frame_buttons, text ="Tell me a Joke", command = lambda : controller.show_frame(Joke), width=50, padding=40, style="Other.TButton")
