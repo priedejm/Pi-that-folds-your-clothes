@@ -14,6 +14,7 @@
 #     print_hi('PyCharm')
 #
 # # See PyCharm help at https://www.jetbrains.com/help/pycharm/
+from cgitb import text
 import random
 import re
 import array
@@ -134,7 +135,6 @@ def foldClothFunction():
         foldClothFunction()
     print("\n");
     file.close()
-    main()
             
         
         
@@ -151,10 +151,7 @@ def myStatsFuntion():
         print("\n");
         print("Would you like to see your stats again? Type: yes or no")
         userinput = input()
-        if userinput == "yes":
-            readStatsAgain = 0;
-        if userinput == "no":
-            main()
+
 def luckyNumsFunction():
     print()
     #go to the luckyNums file.py
@@ -197,78 +194,67 @@ def aJokeFunction():
     #going to have 100+ jokes and store them somewhere else.
     #random number generator
     #switch statement....or something
-    
+        text = ""
     #print(ranNum)
         ranNum = random.randint(1,30)
         if ranNum == 1:
-            print("what's a ghost's favourite type?")
-            print("Booooolean")
+            text =  "what's a ghost's favourite type? \nBooooolean"
         if ranNum == 2:
-            print("student: My dog ate my homework")
-            print("Teacher: But it's an online homework")
-            print("student: yes, he took quite a byte out of it")
+            text = "student: My dog ate my homework \nTeacher: But it's an online homework \nstudent: yes, he took quite a byte out of it"
         if ranNum == 3:
-            print("There are 10 types of people in this world.\nThose who understand binary and those who don't.")
+            text = "There are 10 types of people in this world.\nThose who understand binary and those who don't."
         if ranNum == 4:
-            print("There are 10 types of people in this world.")
-            print("Those who understand binary and those who don't.. and those who know this is a trinary joke.")
+            text = "There are 10 types of people in this world. \nThose who understand binary and those who don't.. and those who know this is a trinary joke."
         if ranNum == 5:
-            print("Why did the programmer quit his job?")
-            print("because he didn't get arrays")
+            text = "Why did the programmer quit his job? \nbecause he didn't get arrays"
         if ranNum == 6:
-            print("How many software engineer does it take to change a light bulb?")
-            print("none, that's a hardware problem")
+            text = "How many software engineer does it take to change a light bulb? \nnone, that's a hardware problem"
         if ranNum == 7:
-            print("I've got a really good UDP joke to tell you, but I don't think you'll get it")
+            text = "I've got a really good UDP joke to tell you, but I don't think you'll get it"
         if ranNum == 8:
-            print("What's the best part about TCP jokes?\nI get to keep telling them until you get them.")
+            text = "What's the best part about TCP jokes?\nI get to keep telling them until you get them."
         if ranNum == 9:
-            print("A guy walks into a bar and asks for 1.4 root beers. The bartender says \"I'll have to charge you extra, that's a root beer float\".")
-            print("The guy says \"In that case, better make it a double.\"")
+            text = "A guy walks into a bar and asks for 1.4 root beers. The bartender says \"I'll have to charge you extra, that's a root beer float\". \nThe guy says \"In that case, better make it a double.\" "
         if ranNum == 10:
-            print("Java and C++ were telling jokes. It was C++'s turn, so he writes something on the wall")
-            print("points to it and says \"Do you get the reference?\" But Java didn't.")
+            text = "Java and C++ were telling jokes. It was C++'s turn, so he writes something on the wall \n points to it and says \"Do you get the reference?\" But Java didn't."
         if ranNum == 11:
-            print("wife: could you pass the salt, dear")
-            print("husband: by value or by reference?")
+            text = "wife: could you pass the salt, dear \nhusband: by value or by reference?"
         if ranNum == 12:
-            print("In order to understand recursion you must first understand recursion.")
+            text = "In order to understand recursion you must first understand recursion."
         if ranNum == 13:
-            print("how do SQL developer get into their house?\nWith keys")
+            text = "how do SQL developer get into their house?\nWith keys"
         if ranNum == 14:
-            print("What is a programmers favorite exercise activity?\nSprint")
+            text = "What is a programmers favorite exercise activity?\nSprint"
         if ranNum == 15:
-            print("Why do IT people wear glasses\nBecause they don't C#")
+            text = "Why do IT people wear glasses\nBecause they don't C#"
         if ranNum == 16:
-            print("why was there no windows 9?")
-            print("because windows 7 8 9.")
+            text = "why was there no windows 9? \nbecause windows 7 8 9."
         if ranNum == 17:
-            print("What did the fish say when he sawm into a wall?\nDam.")
+            text = "What did the fish say when he sawm into a wall?\nDam."
         if ranNum == 18:
-            print("What is a computer’s favorite snack?\nComputer chips")
+            text = "What is a computer’s favorite snack?\nComputer chips"
         if ranNum == 19:
-            print("What did the ocean say to the boat?\nNothing it just wave")
+            text = "What did the ocean say to the boat?\nNothing it just wave"
         if ranNum == 20:
-            print("What type of aniaml will always be in your computer?\n RAM")
+            text = "What type of aniaml will always be in your computer?\n RAM"
         if ranNum == 21:
-            print("What animal is always at a baseball game?\nA bat.")
+            text = "What animal is always at a baseball game?\nA bat."
         if ranNum == 22:
-            print("What did the little corn say to the mama corn?\nWhere is pop corn?")
+            text = "What did the little corn say to the mama corn?\nWhere is pop corn?"
         if ranNum == 23:
-            print("What kind of tree fits in your hand?\nA Palm Tree")
+            text = "What kind of tree fits in your hand?\nA Palm Tree"
         if ranNum == 24:
-            print("Why did the teddy bear say no to dessert?\nBecause she was stuffed.")
+            text = "Why did the teddy bear say no to dessert?\nBecause she was stuffed."
         if ranNum == 25:
-            print("What did one plate say to the other plate?\nDinner is on me.")
+            text = "What did one plate say to the other plate?\nDinner is on me."
         if ranNum == 26:
-            print("Why did the student eat his homework?\nBecause the teacher told him it was a piece of cake.")
+            text = "Why did the student eat his homework?\nBecause the teacher told him it was a piece of cake."
         if ranNum == 27:
-            print("What did the tiger say to her cub on his birthday?\nIt’s roar birthday.")
+            text = "What did the tiger say to her cub on his birthday?\nIt’s roar birthday."
         if ranNum == 28:
-            print("Why was the equal sign so humble?")
-            print("Because he wasn’t greater than or less than anyone else.")
+            text = "Why was the equal sign so humble? \nBecause he wasn’t greater than or less than anyone else."
         if ranNum == 29:
-            print("How do you stay warm in any room?")
-            print("At the cornor because it's always 90 degrees.")
+            text = "How do you stay warm in any room? \nAt the cornor because it's always 90 degrees."
         if ranNum == 30:
-            print("Why does nobody talk to circles?\nBecause there’s no point.")
+            text = "Why does nobody talk to circles?\nBecause there’s no point."
+        return text
