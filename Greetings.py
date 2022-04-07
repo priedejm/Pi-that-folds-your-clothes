@@ -20,42 +20,6 @@ import array
 #geezz python has such simplictly syntax which makes it so diffcult in some cases. HOW DO YOU RUN THE MAIN FUNCTION
 
 
-def main():
-    #4 buttons when press will do one of each of these
-    print("\n");
-    print("Welcome to the pi that will fold your cloths for you\nWhat would you like to do?")
-    print("1)Fold cloth\n2)My stats\n3)Today's lucky numbers\n4)A joke\n5)exit")
-
-    userInput = input()
-
-    if int(userInput) == 1:
-        print("\n");
-        print("In Folding Clothes Menu")
-        #more code coming
-        foldClothFunction()
-    elif int(userInput) == 2:
-        print("\n");
-        print("My Stats Menu")
-        #more code coming
-        myStatsFuntion()
-    elif int(userInput) == 3:
-        print("\n");
-        print("Lucky Number Menu")
-        #more code coming
-        luckyNumsFunction()
-    elif int(userInput) == 4:
-        print("\n");
-        print("Joke Menu")
-        print("\n");
-        #more code coming
-        aJokeFunction()
-    elif int(userInput) == 5:
-        exit();
-    else:
-        print("Error: getting input from user stage")
-
-
-
 
 def foldClothFunction():
     print()
@@ -208,36 +172,26 @@ def luckyNumsFunction():
     #     x = random.randrange(1, 69);
 
     # print(luckyNums)
-    luckyNumAgain = 0
-    while luckyNumAgain == 0:
-        luckyNumbers = []
+    luckyNumbers = []
 
-        for i in range(0, 5):
-            whiteball = random.randint(1, 69)
-            # if the number is in the list. do while loop again until the number is not in the list
-            while whiteball in luckyNumbers:
-                luckyNum = random.randint(1, 69)
-            luckyNumbers.append(whiteball)
-        # sort the 5 lucky numbers
-        luckyNumbers.sort()
-        # redball does not need to be sorted.
-        redball = random.randint(1, 26)
-        luckyNumbers.insert(6, redball)
-        print("Hi, your lucky numbers for the week are: ")
-        print(luckyNumbers)
-        print("Please play responsibly")
-        print(
-            "If you have a gambling addiction please call the National Problem Gambling Helpline Network phone number at 1-800-522-4700")
-        print("Help is available 24/7 and is 100% confidential.")
-        print("The National Problem Gambling Helpline Network also includes text and chat services.")
-        print()
-        print()
-        print("Would you like another set of lucky number? Type: yes or no")
-        userinput = input()
-        if userinput == "yes":
-            luckyNumAgain = 0;
-        if userinput == "no":
-            main()
+    for i in range(0, 5):
+        whiteball = random.randint(1, 69)
+        # if the number is in the list. do while loop again until the number is not in the list
+        while whiteball in luckyNumbers:
+            luckyNum = random.randint(1, 69)
+        luckyNumbers.append(whiteball)
+    # sort the 5 lucky numbers
+    luckyNumbers.sort()
+    # redball does not need to be sorted.
+    redball = random.randint(1, 26)
+    luckyNumbers.insert(6, redball)
+    print("Hi, your lucky numbers for the week are: ")
+    print(luckyNumbers)
+    print("Please play responsibly")
+    print(
+        "If you have a gambling addiction please call the National Problem Gambling Helpline Network phone number at 1-800-522-4700")
+    print("Help is available 24/7 and is 100% confidential.")
+    print("The National Problem Gambling Helpline Network also includes text and chat services.")
 
 def aJokeFunction():
     #going to have 100+ jokes and store them somewhere else.
@@ -245,8 +199,6 @@ def aJokeFunction():
     #switch statement....or something
     
     #print(ranNum)
-    tellAJokeAgain = 0
-    while tellAJokeAgain == 0:
         ranNum = random.randint(1,30)
         if ranNum == 1:
             print("what's a ghost's favourite type?")
@@ -320,13 +272,3 @@ def aJokeFunction():
             print("At the cornor because it's always 90 degrees.")
         if ranNum == 30:
             print("Why does nobody talk to circles?\nBecause there’s no point.")
-        print("\n");
-        print("Would you like to hear another joke? Type: yes or no")
-        userinput = input()
-        if userinput == "yes":
-            tellAJokeAgain = 0;
-        if userinput == "no":
-            main()
-
-
-main()
