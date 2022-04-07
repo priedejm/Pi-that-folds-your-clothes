@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>02f749c2-1c47-4f4a-bd83-4df75df91e1f.jpg</filename>
+	<path>C:\Users\Justin\Desktop\images\02f749c2-1c47-4f4a-bd83-4df75df91e1f.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>400</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>pants</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>14</xmin>
+			<ymin>60</ymin>
+			<xmax>358</xmax>
+			<ymax>617</ymax>
+		</bndbox>
+	</object>
+</annotation>

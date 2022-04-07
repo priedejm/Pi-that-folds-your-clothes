@@ -1,0 +1,26 @@
+<annotation>
+	<folder>images</folder>
+	<filename>04d651a3-4c1b-410c-9b92-d046fe6a33ba.jpg</filename>
+	<path>C:\Users\Justin\Desktop\images\04d651a3-4c1b-410c-9b92-d046fe6a33ba.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>400</width>
+		<height>533</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>shirt</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>16</xmin>
+			<ymin>132</ymin>
+			<xmax>387</xmax>
+			<ymax>513</ymax>
+		</bndbox>
+	</object>
+</annotation>

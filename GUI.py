@@ -3,7 +3,9 @@ from re import X
 from textwrap import fill
 import tkinter as tk
 from tkinter import Frame, Image, PhotoImage, ttk
+from tkinter import font
 from turtle import bgcolor, color, width
+#from Greetings import *
   
 LARGEFONT =("Verdana", 35)
 
@@ -89,21 +91,22 @@ class Home(tk.Frame):
         self.frame_buttons.grid_columnconfigure((0,1), weight = 2)
         self.frame_buttons.grid_rowconfigure(0, weight = 1)
 
-        
+        # Styles for buttons
         style = ttk.Style()
         style.theme_use("default")
 
-        style.map("work",
-          background = [("active", "red"), ("!active", "blue")],
-          foreground = [("active", "yellow"), ("!active", "red")])
+        style.map("Mod.TButton",
+          background = [("active", "#F60081"), ("!active", "white")],
+          foreground = [("active", "white"), ("!active", "#F60081")])
+        # End of Styles for buttons
 
-        button1 = ttk.Button(self.frame_buttons ,text ="Let's Fold some Clothes" ,command = lambda : controller.show_frame(FoldClothes),width=50, padding=40, )
+        button1 = ttk.Button(self.frame_buttons ,text ="Let's Fold some Clothes" ,command = lambda : controller.show_frame(FoldClothes),width=50, padding=40,style="Mod.TButton",  )
         button1.grid(row = 0, column = 0,  )
 
-        button2 = ttk.Button(self.frame_buttons, text ="Tell me a Joke", command = lambda : controller.show_frame(Joke), width=50, padding=40 )
+        button2 = ttk.Button(self.frame_buttons, text ="Tell me a Joke", command = lambda : controller.show_frame(Joke), width=50, padding=40, style="Mod.TButton" ) 
         button2.grid(row = 0, column = 1,)
 
-        button3 = ttk.Button(self.frame_buttons, text ="Object Detection", command = lambda : controller.show_frame(FoldClothes),  width=30, padding=40)
+        button3 = ttk.Button(self.frame_buttons, text ="Object Detection", command = lambda : controller.show_frame(FoldClothes),  width=30, padding=40, style="Mod.TButton" )
         button3.grid(row = 0, column = 2, )
         
     def tkraise(self):
@@ -135,6 +138,15 @@ class FoldClothes(tk.Frame):
         # End of labels on left side of display 
 
 
+        # Styles for top buttons
+        style = ttk.Style()
+        style.theme_use("default")
+
+        style.map("Other.TButton",
+          background = [("active", "#F60081"), ("!active", "white")],
+          foreground = [("active", "white"), ("!active", "#F60081")])
+        # End of Styles for top buttons
+
         # Beginning of buttons, shirt and pants
         shirtButton = ttk.Button(self, text= "Shirt Mode",padding=20, width=30, command= lambda: [printShirt()])
         shirtButton.grid(row = 4, column = 1, )
@@ -159,13 +171,22 @@ class FoldClothes(tk.Frame):
         self.frame_buttons.grid_columnconfigure((0,1), weight = 1)
         self.frame_buttons.grid_rowconfigure(0, weight = 1)
         
-        button1 = ttk.Button(self.frame_buttons,text ="Home", command = lambda : controller.show_frame(Home), width=50, padding=40)
+        # Styles for bottom tab buttons
+        style = ttk.Style()
+        style.theme_use("default")
+
+        style.map("Other.TButton",
+          background = [("active", "#F60081"), ("!active", "white")],
+          foreground = [("active", "white"), ("!active", "#F60081")])
+        # End of Styles for bottom tab buttons
+        
+        button1 = ttk.Button(self.frame_buttons,text ="Home", command = lambda : controller.show_frame(Home), width=50, padding=40, style="Other.TButton")
         button1.grid(row = 0, column = 0, )
 
-        button2 = ttk.Button(self.frame_buttons, text ="Tell me a Joke", command = lambda : controller.show_frame(Joke), width=50, padding=40)
+        button2 = ttk.Button(self.frame_buttons, text ="Tell me a Joke", command = lambda : controller.show_frame(Joke), width=50, padding=40, style="Other.TButton")
         button2.grid(row = 0, column = 1, )
 
-        button3 = ttk.Button(self.frame_buttons, text ="Object Detection", command = lambda : controller.show_frame(FoldClothes), width=30, padding=40)
+        button3 = ttk.Button(self.frame_buttons, text ="Object Detection", command = lambda : controller.show_frame(FoldClothes), width=30, padding=40, style="Other.TButton")
         button3.grid(row = 0, column = 2, )
         
     def tkraise(self):
