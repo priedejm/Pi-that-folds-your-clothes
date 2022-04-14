@@ -214,8 +214,6 @@ class FoldClothes(tk.Frame):
 class Joke(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent, background="#272933")
-        label = ttk.Label(self, text ="We got jokes", font = LARGEFONT)
-        label.grid(row = 0, column = 2)
         
         #Creating a frame exclusively for the buttons
         self.frame_buttons = tk.Frame(parent)
@@ -250,9 +248,11 @@ class Joke(tk.Frame):
         style.configure("shirtPants.TButton", font=("Verdana", 20))
         # Styles for shirt and pants mode buttons
 
-        # Beginning of buttons, shirt and pants
-        shirtButton = ttk.Button(self, text= "Tell me a Joke",padding=20,command= lambda: [self.jokeMode()], style='shirtPants.TButton')
-        shirtButton.grid(row = 2, column = 1, )
+        # Beginning of buttons, Tell me a joke
+        jokeButton = ttk.Button(self, text= "Tell me a Joke",padding=20,command= lambda: [self.jokeMode()], style='shirtPants.TButton')
+        jokeButton.grid(row = 2, column = 4, )
+        jokePadding = ttk.Label(self, text="PaddingPaddingPaddingPadding", font=24)
+        jokePadding.grid(row = 1, column = 2, )
         
     def tkraise(self):
         self.frame_buttons.grid()
@@ -262,7 +262,7 @@ class Joke(tk.Frame):
     def jokeMode(self):
         text = aJokeFunction()
         jokeTextBox = ttk.Label(self, background="#272933", foreground="white")
-        jokeTextBox.grid(row=3, column=2)
+        jokeTextBox.grid(row=3, column=4)
         jokeTextBox.configure(text=text)
     
         
