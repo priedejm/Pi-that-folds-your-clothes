@@ -2,11 +2,12 @@ from cgitb import text
 from re import X
 from textwrap import fill
 import tkinter as tk
-from tkinter import Frame, Image, PhotoImage, ttk, Button
+from tkinter import Frame, Image, Label, PhotoImage, ttk, Button
 #from PIL import ImageTk, Image
 from tkinter import font
 from turtle import bgcolor, color, width
 from Greetings import *
+from PIL import ImageTk, Image 
   
 LARGEFONT =("Verdana", 35)
 
@@ -83,11 +84,24 @@ class Home(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         Frame.configure(self, background="#272933",  )
+        
+        #Image
+        image = Image.open(path)
+        image = image.resize((600, 310))
+        photo = ImageTk.PhotoImage(image)
+
+        label = Label(self, image = photo)
+        label.image = photo
+        label.grid(row=1)
+        
+
+        
+        
         # label of frame Layout 2
-        welcome = ttk.Label(self, text ="The Pi that Folds your Clothes",foreground='white',background="#272933" ,font = LARGEFONT, padding=40,  )
-        sub = ttk.Label(self, text ="  Choose a mode below \n       to get started", foreground='white',background="#272933",font = ("Verdana", 28), anchor="e",  )
-        welcome.grid(row = 0, column = 1, )
-        sub.grid(row = 2, column = 1,  )
+        #welcome = ttk.Label(self, text ="The Pi that Folds your Clothes",foreground='white',background="#272933" ,font = LARGEFONT, padding=40,  )
+        #sub = ttk.Label(self, text ="  Choose a mode below \n       to get started", foreground='white',background="#272933",font = ("Verdana", 28), anchor="e",  )
+        #welcome.grid(row = 0, column = 1, )
+        #sub.grid(row = 2, column = 1,  )
         
         #Creating a frame exclusively for the buttons
         self.frame_buttons = tk.Frame(parent)
