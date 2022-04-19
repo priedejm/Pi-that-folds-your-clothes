@@ -7,9 +7,11 @@ from tkinter import Frame, Image, Label, PhotoImage, ttk, Button
 from tkinter import font
 from turtle import bgcolor, color, width
 from Greetings import *
-from PIL import ImageTk, Image 
+
+#from PIL import ImageTk, Image 
   
-LARGEFONT =("Verdana", 35)
+LARGEFONT =("Verdana", 20)
+ARCADEFONT = ("ArcadeClassic", 16)
 
 #####################
 # Helper Functions
@@ -31,7 +33,7 @@ def printPants():
 
 
 
-path = "C:\\Users\priedejm\Desktop\pi\Pi-that-folds-your-clothes\Laundry.png"
+path = "C:\\Users\justin\Desktop\pi\pi-3b+\laundryArcade.png"
   
 class tkinterApp(tk.Tk):
      
@@ -83,17 +85,16 @@ class Home(tk.Frame):
     
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
-        Frame.configure(self, background="#272933",  )
+        Frame.configure(self, background="#3a4466",  )
         
-        #Image
-        image = Image.open(path)
-        image = image.resize((600, 310))
-        photo = ImageTk.PhotoImage(image)
+       #
+        img=PhotoImage(file=path)
+        img = img.zoom(50) #with 250, I ended up running out of memory
+        img = img.subsample(43) #mechanically, here it is adjusted to 32 instead of 320
+        imgLabel = Label(self,image=img, borderwidth=0)
+        imgLabel.photo = img
+        imgLabel.grid(column=0, row=0)
 
-        label = Label(self, image = photo)
-        label.image = photo
-        label.grid(row=1)
-        
 
         
         
@@ -116,16 +117,16 @@ class Home(tk.Frame):
         style = ttk.Style()
         style.theme_use("default")
 
-        style.configure("Other.TButton", foreground="#F60081", background="white", font=("Verdana", 15), )
+        style.configure("home.TButton", foreground="white", background="#3a4466", font=ARCADEFONT, borderwidth=0)
         # End of Styles for buttons
 
-        button1 = ttk.Button(self.frame_buttons ,text ="Let's Fold some Clothes" ,command = lambda : controller.show_frame(FoldClothes),width=20 ,style="Other.TButton",  )
+        button1 = ttk.Button(self.frame_buttons ,text ="Let's Fold some Clothes" ,command = lambda : controller.show_frame(FoldClothes),width=23 ,style="home.TButton",   )
         button1.grid(row = 0, column = 0, ipady=38 )
 
-        button2 = ttk.Button(self.frame_buttons, text ="Tell me a joke", command = lambda : controller.show_frame(Joke), width=20, style="Other.TButton" ) 
+        button2 = ttk.Button(self.frame_buttons, text ="Tell me a joke", command = lambda : controller.show_frame(Joke), width=23, style="home.TButton" ) 
         button2.grid(row = 0, column = 1, ipady=38)
 
-        button3 = ttk.Button(self.frame_buttons, text ="Object Detection", command = lambda : controller.show_frame(FoldClothes), width=20, style="Other.TButton" )
+        button3 = ttk.Button(self.frame_buttons, text ="Object Detection", command = lambda : controller.show_frame(FoldClothes), width=23, style="home.TButton" )
         button3.grid(row = 0, column = 2,ipady=38)
         
     def tkraise(self):
@@ -192,16 +193,16 @@ class FoldClothes(tk.Frame):
         style = ttk.Style()
         style.theme_use("default")
 
-        style.configure("Other.TButton", foreground="#F60081", background="white", font=("Verdana", 15), )
+        style.configure("clothes.TButton",  font=ARCADEFONT,foreground="#F60081", background="white",  )
         # End of Styles for buttons
 
-        button1 = ttk.Button(self.frame_buttons ,text ="Home" ,command = lambda : controller.show_frame(Home),width=20 ,style="Other.TButton",  )
+        button1 = ttk.Button(self.frame_buttons ,text ="Home" ,command = lambda : controller.show_frame(Home),width=23 ,style="clothes.TButton",  )
         button1.grid(row = 0, column = 0, ipady=38 )
 
-        button2 = ttk.Button(self.frame_buttons, text ="Tell me a joke", command = lambda : controller.show_frame(Joke), width=20, style="Other.TButton" ) 
+        button2 = ttk.Button(self.frame_buttons, text ="Tell me a joke", command = lambda : controller.show_frame(Joke), width=23, style="clothes.TButton" ) 
         button2.grid(row = 0, column = 1, ipady=38)
 
-        button3 = ttk.Button(self.frame_buttons, text ="Object Detection", command = lambda : controller.show_frame(FoldClothes), width=20, style="Other.TButton" )
+        button3 = ttk.Button(self.frame_buttons, text ="Object Detection", command = lambda : controller.show_frame(FoldClothes), width=23, style="clothes.TButton" )
         button3.grid(row = 0, column = 2,ipady=38)
         
     def tkraise(self):
@@ -228,16 +229,16 @@ class Joke(tk.Frame):
         style = ttk.Style()
         style.theme_use("default")
 
-        style.configure("Other.TButton", foreground="#F60081", background="white", font=("Verdana", 15), )
+        style.configure("Joke.TButton", foreground="#F60081", background="white",  font=ARCADEFONT, )
         # End of Styles for buttons
 
-        button1 = ttk.Button(self.frame_buttons ,text ="Let's Fold some Clothes" ,command = lambda : controller.show_frame(FoldClothes),width=20 ,style="Other.TButton",  )
+        button1 = ttk.Button(self.frame_buttons ,text ="Let's Fold some Clothes" ,command = lambda : controller.show_frame(FoldClothes),width=23 ,style="Joke.TButton",  )
         button1.grid(row = 0, column = 0, ipady=38 )
 
-        button2 = ttk.Button(self.frame_buttons, text ="Home", command = lambda : controller.show_frame(Home), width=20, style="Other.TButton" ) 
+        button2 = ttk.Button(self.frame_buttons, text ="Home", command = lambda : controller.show_frame(Home), width=23, style="Joke.TButton" ) 
         button2.grid(row = 0, column = 1, ipady=38)
 
-        button3 = ttk.Button(self.frame_buttons, text ="Object Detection", command = lambda : controller.show_frame(FoldClothes), width=20, style="Other.TButton" )
+        button3 = ttk.Button(self.frame_buttons, text ="Object Detection", command = lambda : controller.show_frame(FoldClothes), width=23, style="Joke.TButton" )
         button3.grid(row = 0, column = 2,ipady=38)
 
          # Styles for shirt and pants mode buttons
