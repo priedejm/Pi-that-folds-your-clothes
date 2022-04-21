@@ -17,6 +17,7 @@ LARGEFONT =("Verdana", 20)
 ARCADEFONT = ("ArcadeClassic", 16)
 LARGEARCADEFONT = ("ArcadeClassic", 24)
 
+jokeCount = 0
 shirtCount = 0
 pantsCount = 0
 totalCount = 0
@@ -294,10 +295,19 @@ class Joke(tk.Frame):
         tk.Frame.tkraise(self)
 
     def jokeMode(self):
-        text = aJokeFunction()
-        jokeTextBox = ttk.Label(self, background="#272933", foreground="white")
-        jokeTextBox.grid(row=3, column=4)
-        jokeTextBox.configure(text=text)
+        global jokeCount
+        
+        if jokeCount > 0:
+            text = aJokeFunction()
+            jokeTextBox = ttk.Label(self, background="red", foreground="white", )
+            jokeTextBox.place(x=250, y=150)
+            jokeTextBox.configure(text=text)
+        
+        jokeCount+=1
+        print(jokeCount)
+
+    
+
     
         
 # Driver Code
