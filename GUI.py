@@ -39,6 +39,12 @@ def printPants():
 pathHome = "C:\\Users\justin\Desktop\pi\pi-3b+\laundryArcade.png"
 pathFold = "C:\\Users\justin\Desktop\pi\pi-3b+\laundrySide.png"
   
+#####################
+# Main Method
+#####################
+#
+# Entire Frame, holds each screen tab
+#
 class tkinterApp(tk.Tk):
      
     # __init__ function for class tkinterApp
@@ -82,7 +88,12 @@ class tkinterApp(tk.Tk):
         frame = self.frames[cont]
         frame.tkraise()
 
-     
+#####################
+# Home Screen
+#####################
+#
+# Responsible for Welcome Screen
+#
 class Home(tk.Frame):
     def printShirt():
         print("Shirt mode")
@@ -91,28 +102,19 @@ class Home(tk.Frame):
         tk.Frame.__init__(self, parent)
         Frame.configure(self, background="#3a4466",  )
         
-       #
+        # Background Image
         img=PhotoImage(file=pathHome)
-        img = img.zoom(50) #with 250, I ended up running out of memory
-        img = img.subsample(43) #mechanically, here it is adjusted to 32 instead of 320
+        img = img.zoom(50) 
+        img = img.subsample(43) 
         imgLabel = Label(self,image=img, borderwidth=0)
         imgLabel.photo = img
         imgLabel.grid(column=0, row=0)
 
-
         
-        
-        # label of frame Layout 2
-        #welcome = ttk.Label(self, text ="The Pi that Folds your Clothes",foreground='white',background="#272933" ,font = LARGEFONT, padding=40,  )
-        #sub = ttk.Label(self, text ="  Choose a mode below \n       to get started", foreground='white',background="#272933",font = ("Verdana", 28), anchor="e",  )
-        #welcome.grid(row = 0, column = 1, )
-        #sub.grid(row = 2, column = 1,  )
-        
-        #Creating a frame exclusively for the buttons
+        #Creating a frame exclusively for the Bottom tab buttons
         self.frame_buttons = tk.Frame(parent)
         self.frame_buttons.grid(row = 1, column = 0, columnspan = 3,)
         self.frame_buttons.grid_remove()
-        
         #Gridding self.frame_buttons
         self.frame_buttons.grid_columnconfigure((0,1), weight = 2)
         self.frame_buttons.grid_rowconfigure(0, weight = 1)
@@ -120,10 +122,10 @@ class Home(tk.Frame):
         # Styles for buttons
         style = ttk.Style()
         style.theme_use("default")
-
         style.configure("home.TButton", foreground="white", background="#3a4466", font=ARCADEFONT,)
         # End of Styles for buttons
 
+        # Beginning of bottom tab buttons
         button1 = ttk.Button(self.frame_buttons ,text ="Let's Fold some Clothes" ,command = lambda : controller.show_frame(FoldClothes),width=23 ,style="home.TButton",   )
         button1.grid(row = 0, column = 0, ipady=38 )
 
@@ -132,6 +134,7 @@ class Home(tk.Frame):
 
         button3 = ttk.Button(self.frame_buttons, text ="Object Detection", command = lambda : controller.show_frame(FoldClothes), width=23, style="home.TButton" )
         button3.grid(row = 0, column = 2,ipady=38)
+        # End of bottom tab buttons
         
     def tkraise(self):
         self.frame_buttons.grid()
@@ -140,7 +143,9 @@ class Home(tk.Frame):
     
     
 
-# second window frame page1
+#####################
+# Fold Clothes Screen
+#####################
 class FoldClothes(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -189,22 +194,21 @@ class FoldClothes(tk.Frame):
 
 
         
-        #Creating a frame exclusively for the buttons
+        #Creating a frame exclusively for the bottom tab buttons
         self.frame_buttons = tk.Frame(parent)
         self.frame_buttons.grid(row = 1, column = 0, columnspan = 3)
-        self.frame_buttons.grid_remove()
-        
+        self.frame_buttons.grid_remove() 
         #Gridding self.frame_buttons
         self.frame_buttons.grid_columnconfigure((0,1), weight = 1)
         self.frame_buttons.grid_rowconfigure(0, weight = 1)
         
-         # Styles for buttons
+        # Styles for buttons
         style = ttk.Style()
         style.theme_use("default")
-
         style.configure("clothes.TButton",  font=ARCADEFONT,foreground="white", background="#3a4466",  )
         # End of Styles for buttons
 
+        # Beginning of bottom tab buttons
         button1 = ttk.Button(self.frame_buttons ,text ="Home" ,command = lambda : controller.show_frame(Home),width=23 ,style="clothes.TButton",  )
         button1.grid(row = 0, column = 0, ipady=38 )
 
@@ -213,6 +217,7 @@ class FoldClothes(tk.Frame):
 
         button3 = ttk.Button(self.frame_buttons, text ="Object Detection", command = lambda : controller.show_frame(FoldClothes), width=23, style="clothes.TButton" )
         button3.grid(row = 0, column = 2,ipady=38)
+        # End of bottom tab buttons
         
     def tkraise(self):
         self.frame_buttons.grid()
@@ -220,7 +225,9 @@ class FoldClothes(tk.Frame):
         tk.Frame.tkraise(self)
         
     
-# third window frame Joke
+#####################
+# Joke Screen
+#####################
 class Joke(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent, background="#272933")
