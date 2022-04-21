@@ -23,21 +23,25 @@ LARGEARCADEFONT = ("ArcadeClassic", 24)
 #
 # Print shirt method 
 #
+shirtCount = 0
 def printShirt():
     print("Shirt mode")
-
+    shirtCount += 1
+    print(shirtCount)
+    
 #
 # Print Pants method
 #
 def printPants():
     print("Pants mode")
+    pantsCount = pantsCount + 1
 
 
 
 
 
-pathHome = "C:\\Users\justin\Desktop\pi\pi-3b+\laundryArcade.png"
-pathFold = "C:\\Users\justin\Desktop\pi\pi-3b+\laundrySide.png"
+pathHome = "C:\\Users\justin\Desktop\pi\Pi-that-folds-your-clothes\laundryArcade.png"
+pathFold = "C:\\Users\justin\Desktop\pi\Pi-that-folds-your-clothes\laundrySide.png"
   
 #####################
 # Main Method
@@ -185,7 +189,7 @@ class FoldClothes(tk.Frame):
         pantsFolded = ttk.Label(self, text ="pants folded:", font = ARCADEFONT, background="#3a4466", foreground="white")
         pantsFolded.place(x=500, y=100)
 
-        totalFolded = ttk.Label(self, text ="Total:", font = ("Verdana", 13), background="#3a4466", foreground="white")
+        totalFolded = ttk.Label(self, text ="Total:", font = ARCADEFONT, background="#3a4466", foreground="white")
         totalFolded.place(x=500, y=135) 
         # End of Current Session on right side of display
 
@@ -230,8 +234,23 @@ class FoldClothes(tk.Frame):
 #####################
 class Joke(tk.Frame):
     def __init__(self, parent, controller):
-        tk.Frame.__init__(self, parent, background="#272933")
+        tk.Frame.__init__(self, parent, background="#3a4466")
         
+
+        # Styles for joke button
+        style = ttk.Style()
+        style.map("joke.TButton",
+          background = [("active", "#F60081"), ("!active", "white")],
+          foreground = [("active", "white"), ("!active", "#F60081")], )
+        style.configure("joke.TButton", font=ARCADEFONT)
+        # Styles for joke button
+       
+       # Beginning of buttons, Tell me a joke
+        jokeButton = ttk.Button(self, text= "Tell me a Joke",padding=15,command= lambda: [self.jokeMode()], style='joke.TButton')
+        jokeButton.place(x=275, y=50)
+
+
+
         #Creating a frame exclusively for the buttons
         self.frame_buttons = tk.Frame(parent)
         self.frame_buttons.grid(row = 1, column = 0, columnspan = 3)
@@ -257,19 +276,6 @@ class Joke(tk.Frame):
         button3 = ttk.Button(self.frame_buttons, text ="Object Detection", command = lambda : controller.show_frame(FoldClothes), width=23, style="Joke.TButton" )
         button3.grid(row = 0, column = 2,ipady=38)
 
-         # Styles for shirt and pants mode buttons
-        style = ttk.Style()
-        style.map("joke.TButton",
-          background = [("active", "#F60081"), ("!active", "white")],
-          foreground = [("active", "white"), ("!active", "#F60081")], )
-        style.configure("joke.TButton", font=("Verdana", 20))
-        # Styles for shirt and pants mode buttons
-
-        # Beginning of buttons, Tell me a joke
-        jokeButton = ttk.Button(self, text= "Tell me a Joke",padding=20,command= lambda: [self.jokeMode()], style='joke.TButton')
-        jokeButton.grid(row = 2, column = 4, )
-        jokePadding = ttk.Label(self, text="PaddingPaddingPaddingPadding", font=24)
-        jokePadding.grid(row = 1, column = 2, )
         
     def tkraise(self):
         self.frame_buttons.grid()
