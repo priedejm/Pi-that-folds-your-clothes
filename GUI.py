@@ -10,38 +10,19 @@ from tkinter.messagebox import YES
 from turtle import bgcolor, color, width
 from Greetings import *
 
+
 #from PIL import ImageTk, Image 
   
 LARGEFONT =("Verdana", 20)
 ARCADEFONT = ("ArcadeClassic", 16)
 LARGEARCADEFONT = ("ArcadeClassic", 24)
 
-#####################
-# Helper Functions
-#####################
-#
-#
-# Print shirt method 
-#
 shirtCount = 0
-def printShirt():
-    print("Shirt mode")
-    shirtCount += 1
-    print(shirtCount)
-    
-#
-# Print Pants method
-#
-def printPants():
-    print("Pants mode")
-    pantsCount = pantsCount + 1
+pantsCount = 0
+totalCount = 0
 
-
-
-
-
-pathHome = "C:\\Users\justin\Desktop\pi\Pi-that-folds-your-clothes\laundryArcade.png"
-pathFold = "C:\\Users\justin\Desktop\pi\Pi-that-folds-your-clothes\laundrySide.png"
+pathHome = "C:\\Users\priedejm\Desktop\pi\Pi-that-folds-your-clothes\laundryArcade.png"
+pathFold = "C:\\Users\priedejm\Desktop\pi\Pi-that-folds-your-clothes\laundrySide.png"
   
 #####################
 # Main Method
@@ -98,10 +79,7 @@ class tkinterApp(tk.Tk):
 #
 # Responsible for Welcome Screen
 #
-class Home(tk.Frame):
-    def printShirt():
-        print("Shirt mode")
-    
+class Home(tk.Frame): 
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         Frame.configure(self, background="#3a4466",  )
@@ -173,9 +151,9 @@ class FoldClothes(tk.Frame):
         # Styles for shirt and pants mode buttons
 
         # Beginning of buttons, shirt and pants
-        shirtButton = ttk.Button(self, text= "Shirt Mode",padding=15,command= lambda: [printShirt()], style='shirtPants.TButton')
+        shirtButton = ttk.Button(self, text= "Shirt Mode",padding=15,command= lambda: [self.shirtStats(), self.totalStat()], style='shirtPants.TButton')
         shirtButton.place(x=140, y=75)
-        pantsButton = ttk.Button(self, text= "Pants Mode",padding=15,command= lambda: [printPants()], style='shirtPants.TButton')
+        pantsButton = ttk.Button(self, text= "Pants Mode",padding=15,command= lambda: [self.pantsStats(), self.totalStat()], style='shirtPants.TButton')
         pantsButton.place(x=320, y=75)
         # End of buttons, shirt and pants
 
@@ -185,16 +163,24 @@ class FoldClothes(tk.Frame):
 
         shirtsFolded = ttk.Label(self, text ="shirts folded:", font = ARCADEFONT, background="#3a4466", foreground="white")
         shirtsFolded.place(x=500, y=65)
+        shirtZero = ttk.Label(self, text ="0", font = LARGEARCADEFONT, background="#3a4466", foreground="white")
+        shirtZero.place(x=675, y=60)
 
         pantsFolded = ttk.Label(self, text ="pants folded:", font = ARCADEFONT, background="#3a4466", foreground="white")
         pantsFolded.place(x=500, y=100)
+        pantsZero = ttk.Label(self, text ="0", font = LARGEARCADEFONT, background="#3a4466", foreground="white")
+        pantsZero.place(x=675, y=95)
 
-        totalFolded = ttk.Label(self, text ="Total:", font = ARCADEFONT, background="#3a4466", foreground="white")
+        totalFolded = ttk.Label(self, text ="Total Folded:", font = ARCADEFONT, background="#3a4466", foreground="white")
         totalFolded.place(x=500, y=135) 
+        totalZero = ttk.Label(self, text ="0", font = LARGEARCADEFONT, background="#3a4466", foreground="white")
+        totalZero.place(x=675, y=130)
         # End of Current Session on right side of display
 
-        timeSaved = ttk.Label(self, text ="Time Saved:", font = LARGEARCADEFONT, background="#3a4466", foreground="white", )
+        timeSaved = ttk.Label(self, text ="Time Saved:", font = ARCADEFONT, background="#3a4466", foreground="white", )
         timeSaved.place(x=500, y=200)
+        time = ttk.Label(self, text ="N/A", font = ARCADEFONT, background="#3a4466", foreground="white")
+        time.place(x=635, y=200)
 
 
         
@@ -227,6 +213,31 @@ class FoldClothes(tk.Frame):
         self.frame_buttons.grid()
         self.frame_buttons.tkraise()
         tk.Frame.tkraise(self)
+    
+    def shirtStats(self):
+        global shirtCount
+        shirtCount = shirtCount + 1
+        text = shirtCount
+        shirtStatBox = ttk.Label(self,text=text ,background="#3a4466", foreground="white", font = LARGEARCADEFONT)
+        shirtStatBox.place(x=675, y=60)
+    
+    def pantsStats(self):
+        global pantsCount
+        pantsCount = pantsCount + 1
+        text = pantsCount
+        pantsStat = ttk.Label(self, text = text,background="#3a4466", foreground="white", font = LARGEARCADEFONT)
+        pantsStat.place(x=675, y=95)
+    
+    def totalStat(self):
+        global totalCount
+        totalCount = pantsCount + shirtCount
+        text = totalCount
+        totalCount = ttk.Label(self, text = text,background="#3a4466", foreground="white", font = LARGEARCADEFONT)
+        totalCount.place(x=675, y=130)
+
+
+    
+    
         
     
 #####################
