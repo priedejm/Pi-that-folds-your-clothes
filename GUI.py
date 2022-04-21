@@ -1,10 +1,12 @@
 from cgitb import text
+from cmath import exp
 from re import X
 from textwrap import fill
 import tkinter as tk
-from tkinter import Frame, Image, Label, PhotoImage, ttk, Button
+from tkinter import LEFT, NW, Frame, Image, Label, PhotoImage, ttk, Button
 #from PIL import ImageTk, Image
 from tkinter import font
+from tkinter.messagebox import YES
 from turtle import bgcolor, color, width
 from Greetings import *
 
@@ -12,6 +14,7 @@ from Greetings import *
   
 LARGEFONT =("Verdana", 20)
 ARCADEFONT = ("ArcadeClassic", 16)
+LARGEARCADEFONT = ("ArcadeClassic", 24)
 
 #####################
 # Helper Functions
@@ -33,7 +36,8 @@ def printPants():
 
 
 
-path = "C:\\Users\justin\Desktop\pi\pi-3b+\laundryArcade.png"
+pathHome = "C:\\Users\justin\Desktop\pi\pi-3b+\laundryArcade.png"
+pathFold = "C:\\Users\justin\Desktop\pi\pi-3b+\laundrySide.png"
   
 class tkinterApp(tk.Tk):
      
@@ -88,7 +92,7 @@ class Home(tk.Frame):
         Frame.configure(self, background="#3a4466",  )
         
        #
-        img=PhotoImage(file=path)
+        img=PhotoImage(file=pathHome)
         img = img.zoom(50) #with 250, I ended up running out of memory
         img = img.subsample(43) #mechanically, here it is adjusted to 32 instead of 320
         imgLabel = Label(self,image=img, borderwidth=0)
@@ -117,7 +121,7 @@ class Home(tk.Frame):
         style = ttk.Style()
         style.theme_use("default")
 
-        style.configure("home.TButton", foreground="white", background="#3a4466", font=ARCADEFONT, borderwidth=0)
+        style.configure("home.TButton", foreground="white", background="#3a4466", font=ARCADEFONT,)
         # End of Styles for buttons
 
         button1 = ttk.Button(self.frame_buttons ,text ="Let's Fold some Clothes" ,command = lambda : controller.show_frame(FoldClothes),width=23 ,style="home.TButton",   )
@@ -140,44 +144,49 @@ class Home(tk.Frame):
 class FoldClothes(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
-        Frame.configure(self, bg="#272933")
-
-
-        # Beginning of statistics on right side of display
-        statshere = ttk.Label(self, text ="Current Session", font = ("Verdana", 20), background="#272933", foreground="white", padding=20)
-        statshere.grid(row = 3, column = 2, )
-
-        shirtsFolded = ttk.Label(self, text ="shirts folded:", font = ("Verdana", 13), background="#272933", foreground="white")
-        shirtsFolded.grid(row = 4, column = 2, )
-
-        pantsFolded = ttk.Label(self, text ="pants folded:", font = ("Verdana", 13), background="#272933", foreground="white")
-        pantsFolded.grid(row = 5, column = 2, )
-
-        totalFolded = ttk.Label(self, text ="Total:", font = ("Verdana", 13), background="#272933", foreground="white")
-        totalFolded.grid(row = 6, column = 2, )  
-        # End of labels on left side of display 
-
+        Frame.configure(self, bg="#3a4466")
+       
+        # Beginning of Image
+        img=PhotoImage(file=pathFold)
+        img = img.zoom(50) 
+        img = img.subsample(43) 
+        imgLabel = Label(self,image=img, borderwidth=0)
+        imgLabel.photo = img
+        imgLabel.place(x=0,y=0, )
+        # End of Image
 
         # Styles for shirt and pants mode buttons
         style = ttk.Style()
         style.map("shirtPants.TButton",
-          background = [("active", "#F60081"), ("!active", "white")],
+          background = [("active", "#F60081"), ("!active", "#c0cbdc")],
           foreground = [("active", "white"), ("!active", "#F60081")], )
-        style.configure("shirtPants.TButton", font=("Verdana", 20))
+        style.configure("shirtPants.TButton", font=ARCADEFONT)
         # Styles for shirt and pants mode buttons
 
         # Beginning of buttons, shirt and pants
-        shirtButton = ttk.Button(self, text= "Shirt Mode",padding=20,command= lambda: [printShirt()], style='shirtPants.TButton')
-        shirtButton.grid(row = 4, column = 1, )
-        pantsButton = ttk.Button(self, text= "Pants Mode",padding=20,command= lambda: [printPants()], style='shirtPants.TButton')
-        pantsButton.grid(row = 6, column = 1, )
+        shirtButton = ttk.Button(self, text= "Shirt Mode",padding=15,command= lambda: [printShirt()], style='shirtPants.TButton')
+        shirtButton.place(x=140, y=75)
+        pantsButton = ttk.Button(self, text= "Pants Mode",padding=15,command= lambda: [printPants()], style='shirtPants.TButton')
+        pantsButton.place(x=320, y=75)
         # End of buttons, shirt and pants
-        shirtpaddingLabel = ttk.Label(self, text ="Fold a shirt", font = ("Verdana", 20), background="#272933", foreground="white")
-        shirtpaddingLabel.grid(row = 4, column = 0)
-        pantspaddingLabel = ttk.Label(self, text ="Fold a pair of pants", font = ("Verdana", 20), background="#272933", foreground="white", padding=10)
-        pantspaddingLabel.grid(row = 6, column = 0)
-        # End of labels on left side of display 
-       
+
+        # Beginning of Current Session on right side of display
+        statshere = ttk.Label(self, text ="Current Session", font = LARGEARCADEFONT, background="#3a4466", foreground="white", )
+        statshere.place(x=500, y=15)
+
+        shirtsFolded = ttk.Label(self, text ="shirts folded:", font = ARCADEFONT, background="#3a4466", foreground="white")
+        shirtsFolded.place(x=500, y=65)
+
+        pantsFolded = ttk.Label(self, text ="pants folded:", font = ARCADEFONT, background="#3a4466", foreground="white")
+        pantsFolded.place(x=500, y=100)
+
+        totalFolded = ttk.Label(self, text ="Total:", font = ("Verdana", 13), background="#3a4466", foreground="white")
+        totalFolded.place(x=500, y=135) 
+        # End of Current Session on right side of display
+
+        timeSaved = ttk.Label(self, text ="Time Saved:", font = LARGEARCADEFONT, background="#3a4466", foreground="white", )
+        timeSaved.place(x=500, y=200)
+
 
         
         #Creating a frame exclusively for the buttons
@@ -193,7 +202,7 @@ class FoldClothes(tk.Frame):
         style = ttk.Style()
         style.theme_use("default")
 
-        style.configure("clothes.TButton",  font=ARCADEFONT,foreground="#F60081", background="white",  )
+        style.configure("clothes.TButton",  font=ARCADEFONT,foreground="white", background="#3a4466",  )
         # End of Styles for buttons
 
         button1 = ttk.Button(self.frame_buttons ,text ="Home" ,command = lambda : controller.show_frame(Home),width=23 ,style="clothes.TButton",  )
@@ -243,14 +252,14 @@ class Joke(tk.Frame):
 
          # Styles for shirt and pants mode buttons
         style = ttk.Style()
-        style.map("shirtPants.TButton",
+        style.map("joke.TButton",
           background = [("active", "#F60081"), ("!active", "white")],
           foreground = [("active", "white"), ("!active", "#F60081")], )
-        style.configure("shirtPants.TButton", font=("Verdana", 20))
+        style.configure("joke.TButton", font=("Verdana", 20))
         # Styles for shirt and pants mode buttons
 
         # Beginning of buttons, Tell me a joke
-        jokeButton = ttk.Button(self, text= "Tell me a Joke",padding=20,command= lambda: [self.jokeMode()], style='shirtPants.TButton')
+        jokeButton = ttk.Button(self, text= "Tell me a Joke",padding=20,command= lambda: [self.jokeMode()], style='joke.TButton')
         jokeButton.grid(row = 2, column = 4, )
         jokePadding = ttk.Label(self, text="PaddingPaddingPaddingPadding", font=24)
         jokePadding.grid(row = 1, column = 2, )
