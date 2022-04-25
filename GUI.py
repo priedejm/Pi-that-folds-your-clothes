@@ -1,5 +1,7 @@
+from asyncio.windows_events import NULL
 from cgitb import text
 from cmath import exp
+from lib2to3.pygram import pattern_symbols
 from re import X
 from textwrap import fill
 import tkinter as tk
@@ -21,9 +23,24 @@ jokeCount = 0
 shirtCount = 0
 pantsCount = 0
 totalCount = 0
+file = open("lifeCount.txt")
+content = file.readlines()
+lifeShirtCount = content[0]
+lifePantsCount = content[1]
 
-pathHome = "C:\\Users\priedejm\Desktop\pi\Pi-that-folds-your-clothes\laundryArcade.png"
-pathFold = "C:\\Users\priedejm\Desktop\pi\Pi-that-folds-your-clothes\laundrySide.png"
+pathHome = "C:\\Users\justin\Desktop\pi\Pi-that-folds-your-clothes\laundryArcade.png"
+pathFold = "C:\\Users\justin\Desktop\pi\Pi-that-folds-your-clothes\laundrySide.png"
+
+
+def writeFile():
+    global lifeShirtCount
+    global lifePantsCount
+    f = open("lifeCount.txt", "w")
+    f.write(str(lifeShirtCount))
+    f.write("\n")
+    f.write(str(lifePantsCount))
+    f.close()
+
   
 #####################
 # Main Method
@@ -67,6 +84,8 @@ class tkinterApp(tk.Tk):
             frame.grid(row = 0, column = 0, sticky ="nsew")
   
         self.show_frame(Home)
+        print("LifeShirtCount: " + lifeShirtCount)
+        print("LifePantsCount: " + lifePantsCount)
   
     # to display the current frame passed as
     # parameter
@@ -152,9 +171,9 @@ class FoldClothes(tk.Frame):
         # Styles for shirt and pants mode buttons
 
         # Beginning of buttons, shirt and pants
-        shirtButton = ttk.Button(self, text= "Shirt Mode",padding=15,command= lambda: [self.shirtStats(), self.totalStat()], style='shirtPants.TButton')
+        shirtButton = ttk.Button(self, text= "Shirt Mode",padding=15,command= lambda: [self.shirtStats(), self.totalStat(), writeFile()], style='shirtPants.TButton')
         shirtButton.place(x=140, y=75)
-        pantsButton = ttk.Button(self, text= "Pants Mode",padding=15,command= lambda: [self.pantsStats(), self.totalStat()], style='shirtPants.TButton')
+        pantsButton = ttk.Button(self, text= "Pants Mode",padding=15,command= lambda: [self.pantsStats(), self.totalStat(), writeFile()], style='shirtPants.TButton')
         pantsButton.place(x=320, y=75)
         # End of buttons, shirt and pants
 
@@ -209,7 +228,7 @@ class FoldClothes(tk.Frame):
         button3 = ttk.Button(self.frame_buttons, text ="Object Detection", command = lambda : controller.show_frame(FoldClothes), width=23, style="clothes.TButton" )
         button3.grid(row = 0, column = 2,ipady=38)
         # End of bottom tab buttons
-        
+
     def tkraise(self):
         self.frame_buttons.grid()
         self.frame_buttons.tkraise()
@@ -217,6 +236,8 @@ class FoldClothes(tk.Frame):
     
     def shirtStats(self):
         global shirtCount
+        global lifeShirtCount
+        lifeShirtCount = int(lifeShirtCount) + 1
         shirtCount = shirtCount + 1
         text = shirtCount
         shirtStatBox = ttk.Label(self,text=text ,background="#3a4466", foreground="white", font = LARGEARCADEFONT)
@@ -224,6 +245,8 @@ class FoldClothes(tk.Frame):
     
     def pantsStats(self):
         global pantsCount
+        global lifePantsCount
+        lifePantsCount = int(lifePantsCount)+ 1
         pantsCount = pantsCount + 1
         text = pantsCount
         pantsStat = ttk.Label(self, text = text,background="#3a4466", foreground="white", font = LARGEARCADEFONT)
@@ -235,12 +258,11 @@ class FoldClothes(tk.Frame):
         text = totalCount
         totalCount = ttk.Label(self, text = text,background="#3a4466", foreground="white", font = LARGEARCADEFONT)
         totalCount.place(x=675, y=130)
+    
+  
+    
 
 
-    
-    
-        
-    
 #####################
 # Joke Screen
 #####################
