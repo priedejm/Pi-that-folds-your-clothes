@@ -1,4 +1,5 @@
 
+
 from cgitb import text
 from cmath import exp
 from lib2to3.pygram import pattern_symbols
@@ -31,8 +32,12 @@ lifeShirtCount = content[0]
 lifePantsCount = content[1]
 lifeTotalCount = content[2]
 
+
 pathHome = "C:\\Users\justin\Desktop\pi\Pi-that-folds-your-clothes\laundryArcade.png"
 pathFold = "C:\\Users\justin\Desktop\pi\Pi-that-folds-your-clothes\laundrySide.png"
+
+#pathHome = "/home/pi/Pi-that-folds-your-clothes/laundryArcade.png"
+#pathFold = "/home/pi/Pi-that-folds-your-clothes/laundrySide.png"
 
 #####################
 # Helper Functions
