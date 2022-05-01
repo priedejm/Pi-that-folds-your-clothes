@@ -1,0 +1,15 @@
+pi@raspberrypi:~/Desktop/examples/lite/examples/object_detection/raspberry_pi $ python detect.py --model shirts.tflite
+[ WARN:0] global /tmp/pip-wheel-hwcmjluw/opencv-python_dc56ddd000dd4893b1f852d88d4a5959/opencv/modules/videoio/src/cap_v4l.cpp (890) open VIDEOIO(V4L2:/dev/video0): can't open camera by index
+Traceback (most recent call last):
+  File "/home/pi/Desktop/examples/lite/examples/object_detection/raspberry_pi/detect.py", line 142, in <module>
+    main()
+  File "/home/pi/Desktop/examples/lite/examples/object_detection/raspberry_pi/detect.py", line 137, in main
+    run(args.model, int(args.cameraId), args.frameWidth, args.frameHeight,
+  File "/home/pi/Desktop/examples/lite/examples/object_detection/raspberry_pi/detect.py", line 61, in run
+    detector = ObjectDetector(model_path=model, options=options)
+  File "/home/pi/Desktop/examples/lite/examples/object_detection/raspberry_pi/object_detector.py", line 116, in __init__
+    displayer = metadata.MetadataDisplayer.with_model_file(model_path)
+  File "/home/pi/.local/lib/python3.9/site-packages/tensorflow_lite_support/metadata/python/metadata.py", line 719, in with_model_file
+    return cls.with_model_buffer(f.read())
+  File "/home/pi/.local/lib/python3.9/site-packages/tensorflow_lite_support/metadata/python/metadata.py", line 732, in with_model_buffer
+    raise ValueError("model_buffer cannot be empty.")
